@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by Apraxin Vladimir on 25.2.17.
+ * POJO врача
  */
 
 @Entity
@@ -27,11 +27,11 @@ public class Doctor implements Serializable {
     @Column(name = "patronymic", nullable = false, length = 50)
     private String patronymic;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "specialty_id", nullable = false)
     private Specialty specialty;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "doctors")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "doctor")
     private Set<Appointment> appointments = new HashSet<>(0);
 
     public Doctor() {
@@ -101,5 +101,17 @@ public class Doctor implements Serializable {
 
     public void setAppointments(Set<Appointment> appointments) {
         this.appointments = appointments;
+    }
+
+    @Override
+    public String toString() {
+        return "Doctor{" +
+                "doctorId=" + getDoctorId() +
+                ", lastName='" + getLastName() + '\'' +
+                ", firstName='" + getFirstName() + '\'' +
+                ", patronymic='" + getPatronymic() + '\'' +
+                ", specialty=" + getSpecialty() +
+                ", appointments=" + getAppointments() +
+                '}';
     }
 }

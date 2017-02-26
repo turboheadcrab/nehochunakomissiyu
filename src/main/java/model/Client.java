@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by Apraxin Vladimir on 25.2.17.
+ * POJO пациента
  */
 
 @Entity
@@ -36,19 +36,18 @@ public class Client implements Serializable {
     @Column(name = "health_insurance", unique = true, nullable = false, length = 16)
     private String healthInsurance;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "clients")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "client")
     private Set<Appointment> appointments = new HashSet<>(0);
 
     public Client() {
     }
 
-    public Client(Integer clientId, String username, String password, String firstName, String lastName,
+    public Client(String username, String password, String lastName, String firstName,
                   String patronymic, String healthInsurance) {
-        this.clientId = clientId;
         this.username = username;
         this.password = password;
-        this.firstName = firstName;
         this.lastName = lastName;
+        this.firstName = firstName;
         this.patronymic = patronymic;
         this.healthInsurance = healthInsurance;
     }
@@ -127,5 +126,19 @@ public class Client implements Serializable {
 
     public void setAppointments(Set<Appointment> appointments) {
         this.appointments = appointments;
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "clientId=" + getClientId() +
+                ", username='" + getUsername() + '\'' +
+                ", password='" + getPassword() + '\'' +
+                ", lastName='" + getLastName() + '\'' +
+                ", firstName='" + getFirstName() + '\'' +
+                ", patronymic='" + getPatronymic() + '\'' +
+                ", healthInsurance='" + getHealthInsurance() + '\'' +
+                ", appointments=" + getAppointments() +
+                '}';
     }
 }

@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * Created by Apraxin Vladimir on 25.2.17.
+ * POJO приёма пациента у врача
  */
 
 @Entity
@@ -17,34 +17,34 @@ public class Appointment implements Serializable {
     @Column(name = "appointment_id", unique = true, nullable = false)
     private Integer appointmentId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "doctor_id", nullable = false)
     private Doctor doctor;
 
     @Column(name = "room_number", nullable = false)
     private Integer roomNumber;
 
+    @Column(name = "from_date_time")
+    private LocalDateTime fromDateTime;
 
-    private LocalDateTime fromDate;
-
-
-    private LocalDateTime toDate;
+    @Column(name = "to_date_time")
+    private LocalDateTime toDateTime;
 
     public Appointment() {
     }
 
-    public Appointment(Integer appointmentId, Client client, Doctor doctor, Integer roomNumber, LocalDateTime fromDate,
-                       LocalDateTime toDate) {
+    public Appointment(Integer appointmentId, Client client, Doctor doctor, Integer roomNumber, LocalDateTime fromDateTime,
+                       LocalDateTime toDateTime) {
         this.appointmentId = appointmentId;
         this.client = client;
         this.doctor = doctor;
         this.roomNumber = roomNumber;
-        this.fromDate = fromDate;
-        this.toDate = toDate;
+        this.fromDateTime = fromDateTime;
+        this.toDateTime = toDateTime;
     }
 
     public Integer getAppointmentId() {
@@ -79,19 +79,31 @@ public class Appointment implements Serializable {
         this.roomNumber = roomNumber;
     }
 
-    public LocalDateTime getFromDate() {
-        return fromDate;
+    public LocalDateTime getFromDateTime() {
+        return fromDateTime;
     }
 
-    public void setFromDate(LocalDateTime fromDate) {
-        this.fromDate = fromDate;
+    public void setFromDateTime(LocalDateTime fromDate) {
+        this.fromDateTime = fromDate;
     }
 
-    public LocalDateTime getToDate() {
-        return toDate;
+    public LocalDateTime getToDateTime() {
+        return toDateTime;
     }
 
-    public void setToDate(LocalDateTime toDate) {
-        this.toDate = toDate;
+    public void setToDateTime(LocalDateTime toDate) {
+        this.toDateTime = toDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Appointment{" +
+                "appointmentId=" + getAppointmentId() +
+                ", client=" + getClient() +
+                ", doctor=" + getDoctor() +
+                ", roomNumber=" + getRoomNumber() +
+                ", fromDateTime=" + getFromDateTime() +
+                ", toDateTime=" + getToDateTime() +
+                '}';
     }
 }

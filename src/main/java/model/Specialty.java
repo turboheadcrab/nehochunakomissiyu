@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by Apraxin Vladimir on 25.2.17.
+ * POJO специальности врача
  */
 
 @Entity
@@ -21,7 +21,7 @@ public class Specialty implements Serializable {
     @Column(name = "name", unique = true, nullable = false)
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "specialties")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "specialty")
     private Set<Doctor> doctors = new HashSet<>(0);
 
     public Specialty() {
@@ -60,5 +60,14 @@ public class Specialty implements Serializable {
 
     public void setDoctors(Set<Doctor> doctors) {
         this.doctors = doctors;
+    }
+
+    @Override
+    public String toString() {
+        return "Specialty{" +
+                "specialtyId=" + getSpecialtyId() +
+                ", name='" + getName() + '\'' +
+                ", doctors=" + getDoctors() +
+                '}';
     }
 }
