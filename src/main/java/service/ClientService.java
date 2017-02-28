@@ -35,6 +35,13 @@ public class ClientService {
         return client;
     }
 
+    public Integer findIdByUsername(String username) {
+        clientDao.openCurrentSession();
+        Integer id = clientDao.findIdByUsername(username);
+        clientDao.closeCurrentSession();
+        return id;
+    }
+
     public List<Client> findAll() {
         clientDao.openCurrentSession();
         List<Client> clients = clientDao.findAll();

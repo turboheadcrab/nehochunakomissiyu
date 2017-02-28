@@ -24,6 +24,17 @@ public class ClientDao extends AbstractDao<Client> {
         return getCurrentSession().get(Client.class, id);
     }
 
+    public Integer findIdByUsername(String username) {
+        List<Client> clients = findAll();
+        for (Client client:
+                clients) {
+            if (client.getUsername().equals(username)) {
+                return client.getClientId();
+            }
+        }
+        return -1;
+    }
+
     @Override
     public void delete(Client client) {
         getCurrentSession().delete(client);

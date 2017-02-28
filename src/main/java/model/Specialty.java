@@ -27,15 +27,8 @@ public class Specialty implements Serializable {
     public Specialty() {
     }
 
-    public Specialty(Integer specialtyId, String name) {
-        this.specialtyId = specialtyId;
+    public Specialty(String name) {
         this.name = name;
-    }
-
-    public Specialty(Integer specialtyId, String name, Set<Doctor> doctors) {
-        this.specialtyId = specialtyId;
-        this.name = name;
-        this.doctors = doctors;
     }
 
     public Integer getSpecialtyId() {
