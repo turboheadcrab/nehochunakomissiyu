@@ -2,8 +2,6 @@ package servlet;
 
 import javax.servlet.http.HttpServlet;
 
-/**
- * Created by Apraxin Vladimir on 1.3.17.
- */
+//TODO
 public class AppointmentServlet extends HttpServlet {
 }

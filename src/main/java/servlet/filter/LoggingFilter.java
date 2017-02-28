@@ -3,9 +3,7 @@ package servlet.filter;
 import javax.servlet.*;
 import java.io.IOException;
 
-/**
- * Created by Apraxin Vladimir on 1.3.17.
- */
+//TODO
 public class LoggingFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
