@@ -3,4 +3,40 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+
+    <welcome-file-list>
+        <welcome-file>main</welcome-file>
+    </welcome-file-list>
+
+
+    <servlet>
+        <servlet-name>main</servlet-name>
+        <servlet-class>servlet.MainPageServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>main</servlet-name>
+        <url-pattern>/main</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>about</servlet-name>
+        <jsp-file>/WEB-INF/views/about.html</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>about</servlet-name>
+        <url-pattern>/about</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>contacts</servlet-name>
+        <jsp-file>/WEB-INF/views/contact.html</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>contacts</servlet-name>
+        <url-pattern>/contacts</url-pattern>
+    </servlet-mapping>
 </web-app>
