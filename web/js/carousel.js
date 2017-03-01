@@ -49,7 +49,7 @@
 		dBody            = (document.body || document.documentElement),
 		transitionSupport = function() {
 			dBody.setAttribute('style', 'transition:top 1s ease;-webkit-transition:top 1s ease;-moz-transition:top 1s ease;');
-			var tSupport = !!(dBody.style.transition || dBody.style.webkitTransition || dBody.style.msTransition || dBody.style.OTransition || dBody.style.MozTransition )
+			var tSupport = !!(dBody.style.transition || dBody.style.webkitTransition || dBody.style.msTransition || dBody.style.OTransition || dBody.style.MozTransition );
 			
 			return tSupport;
 		},
@@ -143,7 +143,7 @@
 					var $oEl        = $(this),
 						$pagination = $('<ol class="' + opt.namespace + '-tabs" role="tablist navigation" />'),
 						$slider     = $oEl.find(opt.slider),
-						$slides     = $oEl.find(opt.slide)
+						$slides     = $oEl.find(opt.slide);
 						slideNum    = $slides.length,
 						associated  = 'carousel-' + inst + '-' + i;
 						
@@ -158,9 +158,8 @@
 							].join('');
 						
 						$pagination.prepend(tabMarkup);
-					};
-
-					$pagination
+                    }
+                    $pagination
 						.appendTo( $oEl )
 						.find('li').keydown( function(e) {
 							var $el      = $(this),
@@ -436,7 +435,7 @@ $.event.special.dragSnap = {
 					dBody = document.body,
 					transitionSupport = function() {
 						dBody.setAttribute('style', 'transition:top 1s ease;-webkit-transition:top 1s ease;-moz-transition:top 1s ease;');
-						var tSupport = !!(dBody.style.transition || dBody.style.webkitTransition || dBody.style.MozTransition )
+						var tSupport = !!(dBody.style.transition || dBody.style.webkitTransition || dBody.style.MozTransition );
 
 						return tSupport;
 					};
@@ -485,11 +484,10 @@ $.event.special.dragSnap = {
 						$tEl.css({"margin-left": currentPos + ( ( (stop.coords[0] - start.coords[0]) / start.origin.width() ) * 100 ) + '%' });
 						e.preventDefault();
 					} else {
-						return;
-					}
-				};
 
-				$el
+					}
+                }
+                $el
 					.bind("gesturestart", function(e) {
 						$el
 							.unbind("touchmove", moveHandler)

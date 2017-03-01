@@ -84,7 +84,7 @@
                 <p>Enter Password</p>
                 <input id="password" name="password" type="password" placeholder="Password" required>
                 <p>Repeat Password</p>
-                <input id="password-repeat" name="password-repeat" placeholder="Password" required>
+                <input id="password-repeat" name="password-repeat" type="password" placeholder="Password" required>
             </div>
             <br>
             <div id="actions">
