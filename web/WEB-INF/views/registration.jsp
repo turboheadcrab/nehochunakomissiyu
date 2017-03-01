@@ -7,7 +7,7 @@
     <title>Republican Children's Clinical Hospital</title>
     <meta name="keywords" content="children, health, doctors, illness"/>
     <meta name="description"
-          content="Here you can make an appointment with a doctor in Respublican Children's Clinical Hospital"/>
+          content="Here you can make an appointment with a doctor in Republican Children's Clinical Hospital"/>
 
     <link href="../../css/bootstrap.css" rel="stylesheet">
     <link href="../../css/bootstrap-responsive.css" rel="stylesheet">

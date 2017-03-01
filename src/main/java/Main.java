@@ -1,3 +1,4 @@
+/*
 import model.Client;
 import org.hibernate.HibernateException;
 import org.hibernate.Metamodel;
@@ -32,4 +33,4 @@ public class Main {
         Client client3 = clientService.findById(2);
         System.out.println("Find by ID 2: " + client3.toString());
     }
-}
+}*/
